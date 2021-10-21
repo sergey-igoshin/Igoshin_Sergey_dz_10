@@ -18,7 +18,6 @@ class Matrix:
         return str('\n'.join([''.join([str(f'{el:4}') for el in i]) for i in self.matrix]))
 
     def __add__(self, other):
-        print('*' * 15)
         for x in range(len(self.matrix)):
             for y in range(len(self.matrix[x])):
                 self.matrix[x][y] = self.matrix[x][y] + other.matrix[x][y]
