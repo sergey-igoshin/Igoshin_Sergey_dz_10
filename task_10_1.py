@@ -8,6 +8,7 @@
 Подсказка: сложение элементов матриц выполнять поэлементно. Первый элемент первой строки первой матрицы складываем с
 первым элементом первой строки второй матрицы и пр.
 """
+import numpy as np
 
 
 class Matrix:
@@ -24,16 +25,20 @@ class Matrix:
         return self
 
 
-first_m = Matrix(
-    [[25, 10, 19, 45, 3],
-     [47, 57, 9, 58, 53],
-     [-5, 4, -83, 36, 87],
-     [8, 72, -46, 3, -43]])
+class SetMatrix:
+    def __init__(self, *args):
+        self.row, self.col = args
 
-second_m = Matrix(
-    [[-12, 60, 22, -36, 5],
-     [-72, 12, 4, -44, 12],
-     [50, -4, 72, -80, -95],
-     [29, -25, 34, 23, 56]])
+    @property
+    def matrix(self):
+        return np.random.randint(-50, 50, (self.row, self.col))
 
+
+set_m = SetMatrix(int(input('Укажите число строк матрицы: ')), int(input('Укажите число столбцов матрицы: ')))
+first_m = Matrix(set_m.matrix)
+second_m = Matrix(set_m.matrix)
+print(first_m)
+print()
+print(second_m)
+print()
 print(first_m + second_m)
